@@ -1,8 +1,8 @@
 package xyz.staffjoy.company.service;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -27,7 +27,7 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class CompanyService {
 
-    static final ILogger logger = SLoggerFactory.getLogger(CompanyService.class);
+    static final Logger logger = LoggerFactory.getLogger(CompanyService.class);
 
     @Autowired
     private CompanyRepo companyRepo;

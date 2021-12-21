@@ -1,7 +1,7 @@
 package xyz.staffjoy.sms.controller;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
@@ -21,7 +21,7 @@ import javax.validation.Valid;
 @Validated
 public class SmsController {
 
-    static final ILogger logger = SLoggerFactory.getLogger(SmsController.class);
+    static final Logger logger = LoggerFactory.getLogger(SmsController.class);
 
     @Autowired
     private AppProps appProps;

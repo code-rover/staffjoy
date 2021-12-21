@@ -5,8 +5,6 @@ import com.aliyuncs.IAcsClient;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
 import io.sentry.SentryClient;
 import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -14,6 +12,9 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import xyz.staffjoy.common.config.StaffjoyRestConfig;
 import xyz.staffjoy.sms.SmsConstant;
 import xyz.staffjoy.sms.props.AppProps;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,7 +28,7 @@ public class AppConfig {
 
     public static final String ASYNC_EXECUTOR_NAME = "asyncExecutor";
 
-    private static ILogger logger = SLoggerFactory.getLogger(AppConfig.class);
+    private static Logger logger = LoggerFactory.getLogger(AppConfig.class);
 
     @Autowired
     AppProps appProps;

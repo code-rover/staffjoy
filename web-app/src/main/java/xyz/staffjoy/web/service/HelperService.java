@@ -1,8 +1,9 @@
 package xyz.staffjoy.web.service;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
 import io.sentry.SentryClient;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ import java.net.URISyntaxException;
 @Service
 public class HelperService {
 
-    static final ILogger logger = SLoggerFactory.getLogger(HelperService.class);
+    static final Logger logger = LoggerFactory.getLogger(HelperService.class);
 
     static final String METHOD_POST = "POST";
 
@@ -41,12 +42,12 @@ public class HelperService {
         return METHOD_POST.equals(request.getMethod());
     }
 
-    public void logError(ILogger log, String errMsg) {
+    public void logError(Logger log, String errMsg) {
         log.error(errMsg);
         sentryClient.sendMessage(errMsg);
     }
 
-    public void logException(ILogger log, Exception ex, String errMsg) {
+    public void logException(Logger log, Exception ex, String errMsg) {
         log.error(errMsg, ex);
         sentryClient.sendException(ex);
     }

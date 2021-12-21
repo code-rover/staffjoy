@@ -1,7 +1,7 @@
 package xyz.staffjoy.company.service.helper;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,7 +20,7 @@ import xyz.staffjoy.company.service.TeamService;
 @Component
 public class ShiftHelper {
 
-    static final ILogger logger = SLoggerFactory.getLogger(ShiftHelper.class);
+    static final Logger logger = LoggerFactory.getLogger(ShiftHelper.class);
 
     @Autowired
     TeamService teamService;

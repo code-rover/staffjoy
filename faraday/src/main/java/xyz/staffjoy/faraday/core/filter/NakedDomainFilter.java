@@ -1,7 +1,7 @@
 package xyz.staffjoy.faraday.core.filter;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.filter.OncePerRequestFilter;
 import xyz.staffjoy.common.env.EnvConfig;
 
@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
 
 public class NakedDomainFilter extends OncePerRequestFilter {
 
-    private static final ILogger log = SLoggerFactory.getLogger(NakedDomainFilter.class);
+    private static final Logger log = LoggerFactory.getLogger(NakedDomainFilter.class);
 
     private final EnvConfig envConfig;
     private static final String DEFAULT_SERVICE = "www";

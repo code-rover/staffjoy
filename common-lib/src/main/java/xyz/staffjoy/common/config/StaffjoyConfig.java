@@ -1,7 +1,7 @@
 package xyz.staffjoy.common.config;
 
-import com.github.structlog4j.StructLog4J;
-import com.github.structlog4j.json.JsonFormatter;
+// import com.github.structlog4j.StructLog4J;
+// import com.github.structlog4j.json.JsonFormatter;
 import feign.RequestInterceptor;
 import io.sentry.Sentry;
 import io.sentry.SentryClient;
@@ -67,12 +67,12 @@ public class StaffjoyConfig implements WebMvcConfigurer {
     @PostConstruct
     public void init() {
         // init structured logging
-        StructLog4J.setFormatter(JsonFormatter.getInstance());
+        // StructLog4J.setFormatter(JsonFormatter.getInstance());
 
         // global log fields setting
-        StructLog4J.setMandatoryContextSupplier(() -> new Object[]{
-                "env", activeProfile,
-                "service", appName});
+        // StructLog4J.setMandatoryContextSupplier(() -> new Object[]{
+        //         "env", activeProfile,
+        //         "service", appName});
     }
 
     @PreDestroy

@@ -1,8 +1,8 @@
 package xyz.staffjoy.company.service;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.staffjoy.common.api.ResultCode;
@@ -20,7 +20,7 @@ import java.util.List;
 
 @Service
 public class JobService {
-    static final ILogger logger = SLoggerFactory.getLogger(JobService.class);
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     JobRepo jobRepo;

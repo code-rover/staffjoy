@@ -1,8 +1,9 @@
 package xyz.staffjoy.whoami.service;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
 import io.sentry.SentryClient;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.staffjoy.account.client.AccountClient;
@@ -23,7 +24,7 @@ import xyz.staffjoy.whoami.props.AppProps;
 @Service
 public class WhoAmIService {
 
-    static final ILogger logger = SLoggerFactory.getLogger(WhoAmIService.class);
+    static final Logger logger = LoggerFactory.getLogger(WhoAmIService.class);
 
     @Autowired
     CompanyClient companyClient;

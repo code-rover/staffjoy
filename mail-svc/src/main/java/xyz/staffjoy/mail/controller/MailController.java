@@ -1,7 +1,7 @@
 package xyz.staffjoy.mail.controller;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ import javax.validation.Valid;
 @Validated
 public class MailController {
 
-    private static ILogger logger = SLoggerFactory.getLogger(MailController.class);
+    private static Logger logger = LoggerFactory.getLogger(MailController.class);
 
     @Autowired
     private MailSendService mailSendService;

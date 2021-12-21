@@ -1,7 +1,6 @@
 package xyz.staffjoy.account.service.helper;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+
 import com.google.common.collect.Maps;
 import io.intercom.api.Avatar;
 import io.intercom.api.CustomAttribute;
@@ -9,6 +8,9 @@ import io.intercom.api.Event;
 import io.intercom.api.User;
 import io.sentry.SentryClient;
 import lombok.RequiredArgsConstructor;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -33,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 @Component
 public class ServiceHelper {
-    static final ILogger logger = SLoggerFactory.getLogger(ServiceHelper.class);
+    static final Logger logger = LoggerFactory.getLogger(ServiceHelper.class);
 
     private final CompanyClient companyClient;
 
@@ -210,14 +212,14 @@ public class ServiceHelper {
         return false;
     }
 
-    public void handleError(ILogger log, String errMsg) {
+    public void handleError(Logger log, String errMsg) {
         log.error(errMsg);
         if (!envConfig.isDebug()) {
             sentryClient.sendMessage(errMsg);
         }
     }
 
-    public void handleException(ILogger log, Exception ex, String errMsg) {
+    public void handleException(Logger log, Exception ex, String errMsg) {
         log.error(errMsg, ex);
         if (!envConfig.isDebug()) {
             sentryClient.sendException(ex);

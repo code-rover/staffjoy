@@ -1,7 +1,7 @@
 package xyz.staffjoy.bot.service;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.staffjoy.account.dto.AccountDto;
@@ -11,7 +11,7 @@ import xyz.staffjoy.company.dto.CompanyDto;
 @Service
 public class OnBoardingService {
 
-    static final ILogger logger = SLoggerFactory.getLogger(OnBoardingService.class);
+    static final Logger logger = LoggerFactory.getLogger(OnBoardingService.class);
 
     @Autowired
     HelperService helperService;

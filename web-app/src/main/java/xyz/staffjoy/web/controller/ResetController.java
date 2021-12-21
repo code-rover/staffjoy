@@ -1,7 +1,8 @@
 package xyz.staffjoy.web.controller;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +24,7 @@ public class ResetController {
 
     public static final String PASSWORD_RESET_PATH = "/password-reset";
 
-    static final ILogger logger = SLoggerFactory.getLogger(ResetController.class);
+    static final Logger logger = LoggerFactory.getLogger(ResetController.class);
 
     @Autowired
     private PageFactory pageFactory;

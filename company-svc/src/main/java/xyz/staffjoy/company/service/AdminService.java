@@ -1,7 +1,8 @@
 package xyz.staffjoy.company.service;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.staffjoy.common.api.ResultCode;
@@ -20,7 +21,7 @@ import java.util.List;
 
 @Service
 public class AdminService {
-    static final ILogger logger = SLoggerFactory.getLogger(AdminService.class);
+    static final Logger logger = LoggerFactory.getLogger(AdminService.class);
 
     @Autowired
     AdminRepo adminRepo;

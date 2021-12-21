@@ -1,8 +1,9 @@
 package xyz.staffjoy.ical.service;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
 import io.sentry.SentryClient;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.staffjoy.common.auth.AuthConstant;
@@ -18,7 +19,7 @@ import java.time.temporal.ChronoUnit;
 @Service
 public class ICalService {
 
-    static final ILogger logger = SLoggerFactory.getLogger(ICalService.class);
+    static final Logger logger = LoggerFactory.getLogger(ICalService.class);
 
     @Autowired
     private CompanyClient companyClient;

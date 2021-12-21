@@ -1,9 +1,11 @@
 package xyz.staffjoy.account.service;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+// import com.github.structlog4j.ILogger;
+// import com.github.structlog4j.SLoggerFactory;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -45,7 +47,8 @@ import static java.util.stream.Collectors.toList;
 @RequiredArgsConstructor
 public class AccountService {
 
-    static ILogger logger = SLoggerFactory.getLogger(AccountService.class);
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    // static Logger logger = LoggerFactory.getLogger(AccountService.class);
 
     private final AccountRepo accountRepo;
 

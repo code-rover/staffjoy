@@ -4,10 +4,11 @@ import com.aliyuncs.IAcsClient;
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
 import com.aliyuncs.exceptions.ClientException;
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
 import io.sentry.SentryClient;
 import io.sentry.context.Context;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ import xyz.staffjoy.sms.dto.SmsRequest;
 @Service
 public class SmsSendService {
 
-    static final ILogger logger = SLoggerFactory.getLogger(SmsSendService.class);
+    static final Logger logger = LoggerFactory.getLogger(SmsSendService.class);
 
     @Autowired
     private AppProps appProps;

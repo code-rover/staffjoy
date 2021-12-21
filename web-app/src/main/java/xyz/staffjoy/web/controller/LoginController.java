@@ -1,7 +1,8 @@
 package xyz.staffjoy.web.controller;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,7 +35,7 @@ import java.util.Map;
 @Controller
 public class LoginController {
 
-    static final ILogger logger = SLoggerFactory.getLogger(LoginController.class);
+    static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
     private PageFactory pageFactory;

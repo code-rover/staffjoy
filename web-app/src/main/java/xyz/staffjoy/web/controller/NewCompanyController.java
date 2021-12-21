@@ -1,7 +1,7 @@
 package xyz.staffjoy.web.controller;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +26,7 @@ import xyz.staffjoy.web.view.PageFactory;
 @Controller
 public class NewCompanyController {
 
-    static final ILogger logger = SLoggerFactory.getLogger(LoginController.class);
+    static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     static final String DEFAULT_TIMEZONE = "UTC";
     static final String DEFAULT_DAYWEEK_STARTS = "Monday";

@@ -1,12 +1,13 @@
 package xyz.staffjoy.faraday.core.trace;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
 
 import static org.apache.commons.lang3.StringUtils.trimToEmpty;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class LoggingTraceInterceptor implements TraceInterceptor {
-    private static final ILogger log = SLoggerFactory.getLogger(LoggingTraceInterceptor.class);
+    private static final Logger log = LoggerFactory.getLogger(LoggingTraceInterceptor.class);
 
     @Override
     public void onRequestReceived(String traceId, IncomingRequest request) {

@@ -1,8 +1,9 @@
 package xyz.staffjoy.faraday.controller;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
 import io.sentry.SentryClient;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,7 @@ import java.util.UUID;
 @SuppressWarnings(value = "Duplicates")
 public class GlobalErrorController implements ErrorController {
 
-    static final ILogger logger = SLoggerFactory.getLogger(GlobalErrorController.class);
+    static final Logger logger = LoggerFactory.getLogger(GlobalErrorController.class);
 
     @Autowired
     ErrorPageFactory errorPageFactory;

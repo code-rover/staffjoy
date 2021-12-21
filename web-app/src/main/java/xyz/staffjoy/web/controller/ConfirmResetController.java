@@ -1,8 +1,9 @@
 package xyz.staffjoy.web.controller;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +38,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class ConfirmResetController {
 
-    static final ILogger logger = SLoggerFactory.getLogger(ConfirmResetController.class);
+    static final Logger logger = LoggerFactory.getLogger(ConfirmResetController.class);
 
     @Autowired
     private PageFactory pageFactory;

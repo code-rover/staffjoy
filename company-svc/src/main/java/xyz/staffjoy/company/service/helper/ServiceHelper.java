@@ -1,8 +1,9 @@
 package xyz.staffjoy.company.service.helper;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
 import io.sentry.SentryClient;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
@@ -26,7 +27,7 @@ import java.util.Map;
 @Component
 public class ServiceHelper {
 
-    static final ILogger logger = SLoggerFactory.getLogger(ServiceHelper.class);
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private AccountClient accountClient;
@@ -264,7 +265,7 @@ public class ServiceHelper {
         logger.error(String.format("unable to determine updated shift messaging - orig %s new %s", origShiftDto, shiftDtoToUpdte));
     }
 
-    public void handleErrorAndThrowException(ILogger log, String errMsg) {
+    public void handleErrorAndThrowException(Logger log, String errMsg) {
         log.error(errMsg);
         if (!envConfig.isDebug()) {
             sentryClient.sendMessage(errMsg);
@@ -272,7 +273,7 @@ public class ServiceHelper {
         throw new ServiceException(errMsg);
     }
 
-    public void handleErrorAndThrowException(ILogger log, Exception ex, String errMsg) {
+    public void handleErrorAndThrowException(Logger log, Exception ex, String errMsg) {
         log.error(errMsg, ex);
         if (!envConfig.isDebug()) {
             sentryClient.sendException(ex);

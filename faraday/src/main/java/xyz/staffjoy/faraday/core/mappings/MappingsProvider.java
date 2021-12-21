@@ -1,7 +1,7 @@
 package xyz.staffjoy.faraday.core.mappings;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 import xyz.staffjoy.faraday.config.FaradayProperties;
 import xyz.staffjoy.faraday.config.MappingProperties;
@@ -16,7 +16,7 @@ import static org.springframework.util.CollectionUtils.isEmpty;
 
 public abstract class MappingsProvider {
 
-    private static final ILogger log = SLoggerFactory.getLogger(MappingsProvider.class);
+    private static final Logger log = LoggerFactory.getLogger(MappingsProvider.class);
 
     protected final ServerProperties serverProperties;
     protected final FaradayProperties faradayProperties;

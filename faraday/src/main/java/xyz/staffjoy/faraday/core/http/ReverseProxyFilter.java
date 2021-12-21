@@ -1,7 +1,7 @@
 package xyz.staffjoy.faraday.core.http;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +32,7 @@ public class ReverseProxyFilter extends OncePerRequestFilter {
     protected static final String X_FORWARDED_HOST_HEADER = "X-Forwarded-Host";
     protected static final String X_FORWARDED_PORT_HEADER = "X-Forwarded-Port";
 
-    private static final ILogger log = SLoggerFactory.getLogger(ReverseProxyFilter.class);
+    private static final Logger log = LoggerFactory.getLogger(ReverseProxyFilter.class);
 
     protected final FaradayProperties faradayProperties;
     protected final RequestDataExtractor extractor;

@@ -1,8 +1,9 @@
 package xyz.staffjoy.bot.service;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
 import io.sentry.SentryClient;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
@@ -25,7 +26,6 @@ import xyz.staffjoy.mail.dto.EmailRequest;
 import xyz.staffjoy.sms.client.SmsClient;
 import xyz.staffjoy.sms.dto.SmsRequest;
 
-import javax.json.Json;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -37,7 +37,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class HelperService {
 
-    static final ILogger logger = SLoggerFactory.getLogger(HelperService.class);
+    static final Logger logger = LoggerFactory.getLogger(HelperService.class);
 
     @Autowired
     EnvConfig envConfig;
@@ -225,16 +225,16 @@ public class HelperService {
             throw new ServiceException("Fail to build URI", e);
         }
 
-        String templateParam1 = Json.createObjectBuilder()
-                .add("greet", HelperService.getGreet(HelperService.getFirstName(account.getName())))
-                .add("company_name", companyDto.getName())
-                .build()
-                .toString();
+        // String templateParam1 = Json.createObjectBuilder()
+        //         .add("greet", HelperService.getGreet(HelperService.getFirstName(account.getName())))
+        //         .add("company_name", companyDto.getName())
+        //         .build()
+        //         .toString();
 
-        String templateParam3 = Json.createObjectBuilder()
-                .add("ical_url", icalURI.toString())
-                .build()
-                .toString();
+        // String templateParam3 = Json.createObjectBuilder()
+        //         .add("ical_url", icalURI.toString())
+        //         .build()
+        //         .toString();
 
         // TODO crate sms template on aliyun then update code
 //        String[] onboardingMessages = {
@@ -242,26 +242,26 @@ public class HelperService {
 //                "When your manager publishes your shifts, we'll send them to you here. (To disable Staffjoy messages, reply STOP at any time)",
 //                String.format("Click this link to sync your shifts to your phone's calendar app: %s", icalURI.toString())
 //        };
-        Map<String, String> onboardingMessageMap = new HashMap<String, String>() {{
-            put(BotConstant.ONBOARDING_SMS_TEMPLATE_CODE_1, templateParam1);
-            put(BotConstant.ONBOARDING_SMS_TEMPLATE_CODE_2, "");
-            put(BotConstant.ONBOARDING_SMS_TEMPLATE_CODE_3, templateParam3);
-        }};
+        // Map<String, String> onboardingMessageMap = new HashMap<String, String>() {{
+        //     put(BotConstant.ONBOARDING_SMS_TEMPLATE_CODE_1, templateParam1);
+        //     put(BotConstant.ONBOARDING_SMS_TEMPLATE_CODE_2, "");
+        //     put(BotConstant.ONBOARDING_SMS_TEMPLATE_CODE_3, templateParam3);
+        // }};
 
 
-        for(Map.Entry<String, String> entry : onboardingMessageMap.entrySet()) {
-            String templateCode = entry.getKey();
-            String templateParam = entry.getValue();
+        // for(Map.Entry<String, String> entry : onboardingMessageMap.entrySet()) {
+        //     String templateCode = entry.getKey();
+        //     String templateParam = entry.getValue();
 
-            this.sendSms(account.getPhoneNumber(), templateCode, templateParam);
+        //     this.sendSms(account.getPhoneNumber(), templateCode, templateParam);
 
-            try {
-                Thread.sleep(TimeUnit.SECONDS.toMillis(4));
-            } catch (InterruptedException e) {
-                logger.warn("InterruptedException", e);
-            }
-        }
-        // todo - check if upcoming shifts, and if there are - send them
-        logger.info(String.format("onboarded worker %s (%s) for company %s (%s)", account.getId(), account.getName(), companyDto.getId(), companyDto.getName()));
+        //     try {
+        //         Thread.sleep(TimeUnit.SECONDS.toMillis(4));
+        //     } catch (InterruptedException e) {
+        //         logger.warn("InterruptedException", e);
+        //     }
+        // }
+        // // todo - check if upcoming shifts, and if there are - send them
+        // logger.info(String.format("onboarded worker %s (%s) for company %s (%s)", account.getId(), account.getName(), companyDto.getId(), companyDto.getName()));
     }
 }

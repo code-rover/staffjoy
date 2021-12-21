@@ -1,7 +1,7 @@
 package xyz.staffjoy.account.controller;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
@@ -27,7 +27,7 @@ import javax.validation.constraints.NotBlank;
 @Validated
 public class AccountController {
 
-    static final ILogger logger = SLoggerFactory.getLogger(AccountController.class);
+    static final Logger logger = LoggerFactory.getLogger(AccountController.class);
 
     @Autowired
     private AccountService accountService;

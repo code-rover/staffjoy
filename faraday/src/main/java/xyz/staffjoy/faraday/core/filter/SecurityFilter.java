@@ -1,7 +1,7 @@
 package xyz.staffjoy.faraday.core.filter;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.filter.OncePerRequestFilter;
 import xyz.staffjoy.common.env.EnvConfig;
@@ -17,7 +17,7 @@ import java.net.URISyntaxException;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 public class SecurityFilter extends OncePerRequestFilter {
-    private static final ILogger log = SLoggerFactory.getLogger(SecurityFilter.class);
+    private static final Logger log = LoggerFactory.getLogger(SecurityFilter.class);
 
     private final EnvConfig envConfig;
 

@@ -73,6 +73,8 @@
                 <groupId>structlog4j</groupId>
                 <artifactId>structlog4j-api</artifactId>
                 <version>1.0.0</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/libs/structlog4j-api-1.0.0.jar</systemPath>
             </dependency>
 
             <!-- Optional JSON formatter -->
@@ -80,6 +82,8 @@
                 <groupId>structlog4j</groupId>
                 <artifactId>structlog4j-json</artifactId>
                 <version>1.0.0</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/libs/structlog4j-json-1.0.0.jar</systemPath>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/io.sentry/sentry -->
@@ -203,14 +207,16 @@
     </build>
 
     <repositories>
-        <repository>
+        <!-- <repository>
             <id>aliyun-repos</id>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-        </repository>
+        </repository> -->
+       
         <!--https://github.com/jacek99/structlog4j-->
+       
         <repository>
             <id>jcenter</id>
             <url>http://jcenter.bintray.com</url>

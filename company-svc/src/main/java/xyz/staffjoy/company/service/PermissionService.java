@@ -1,7 +1,7 @@
 package xyz.staffjoy.company.service;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import io.sentry.SentryClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ import xyz.staffjoy.company.service.helper.ServiceHelper;
 @Service
 public class PermissionService {
 
-    static final ILogger logger = SLoggerFactory.getLogger(PermissionService.class);
+    static final Logger logger = LoggerFactory.getLogger(PermissionService.class);
 
     @Autowired
     private SentryClient sentryClient;

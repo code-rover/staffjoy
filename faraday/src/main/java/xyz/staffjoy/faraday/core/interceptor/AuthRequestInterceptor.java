@@ -1,12 +1,13 @@
 package xyz.staffjoy.faraday.core.interceptor;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import xyz.staffjoy.common.auth.AuthConstant;
 import xyz.staffjoy.common.auth.Sessions;
@@ -27,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AuthRequestInterceptor implements PreForwardRequestInterceptor {
-    private final static ILogger log = SLoggerFactory.getLogger(AuthRequestInterceptor.class);
+    private final static Logger log = LoggerFactory.getLogger(AuthRequestInterceptor.class);
 
     private final String signingSecret;
     private final EnvConfig envConfig;

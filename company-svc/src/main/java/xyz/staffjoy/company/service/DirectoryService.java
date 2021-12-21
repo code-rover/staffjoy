@@ -1,7 +1,7 @@
 package xyz.staffjoy.company.service;
 
-import com.github.structlog4j.ILogger;
-import com.github.structlog4j.SLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,7 +25,7 @@ import xyz.staffjoy.company.service.helper.ServiceHelper;
 @Service
 public class DirectoryService {
 
-    static final ILogger logger = SLoggerFactory.getLogger(DirectoryService.class);
+    static final Logger logger = LoggerFactory.getLogger(DirectoryService.class);
 
     @Autowired
     private CompanyRepo companyRepo;
